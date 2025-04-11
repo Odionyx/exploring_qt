@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lTime->setText("Время");
 
     ui->pbCircle->blockSignals(true);
-    ui->pbClear->blockSignals(false);
+    ui->pbCircle->setEnabled(false);
 
     connect(ui->pbCircle,&QAbstractButton::pressed,
                     watch, &Stopwatch::slotCircle);
@@ -54,11 +54,11 @@ void MainWindow::slotPbStartToggled(bool checked)
     if(checked){
         ui->pbStart->setText("  Стоп   ");
         ui->pbCircle->blockSignals(!checked);
-        ui->pbClear->blockSignals(checked);
+        ui->pbCircle->setEnabled(true);
     } else {
         ui->pbStart->setText("  Старт  ");
         ui->pbCircle->blockSignals(!checked);
-        ui->pbClear->blockSignals(checked);
+        ui->pbCircle->setEnabled(false);
     }
 }
 

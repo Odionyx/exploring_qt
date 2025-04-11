@@ -45,7 +45,6 @@ void Stopwatch::slotCircle()
 
 void Stopwatch::slotClear()
 {
-    timer->stop();
     timeS = timeMs = timeS2 = timeMs2 = 0;
     circle =  count = temp = temp2 = 0;
     emit sigTimer(timeS, timeMs);
